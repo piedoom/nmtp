@@ -1,0 +1,6 @@
+{
+    "terminal.integrated.env.windows": {
+        "PATH": "C:\\Users\\industryday\\.platformio\\penv\\Scripts;C:\\Users\\industryday\\.platformio\\penv;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Users\\industryday\\scoop\\shims;C:\\Users\\industryday\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\industryday\\AppData\\Local\\Programs\\Git\\cmd;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Users\\industryday\\scoop\\shims;C:\\Users\\industryday\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\industryday\\AppData\\Local\\Programs\\Git\\cmd",
+        "PLATFORMIO_CALLER": "vscode"
+    }
+}
