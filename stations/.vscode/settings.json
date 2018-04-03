@@ -1,0 +1,6 @@
+{
+    "terminal.integrated.env.windows": {
+        "PATH": "C:\\Users\\industryday\\.platformio\\penv\\Scripts;C:\\Users\\industryday\\.platformio\\penv;C:\\Program Files\\Mozilla Firefox;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Users\\industryday\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Program Files\\Mozilla Firefox;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Users\\industryday\\AppData\\Local\\Microsoft\\WindowsApps;",
+        "PLATFORMIO_CALLER": "vscode"
+    }
+}
