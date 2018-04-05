@@ -1,11 +1,9 @@
 #include <Arduino.h>
-#include "data/state.h"
 
 void setup() {
-    // initialize data
-    State state;    
+    // put your setup code here, to run once:
 }
 
 void loop() {
-    // poll each hardware device and update the state
+    // put your main code here, to run repeatedly:
 }

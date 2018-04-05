@@ -1,9 +1,22 @@
 #include <Arduino.h>
+#include "data/state.h"
+#include "controller.h"
+#include <MIDI.h>
+
+
+State state = {};
+
+MidiInterface MIDI(Serial1);
+Controller controller(MIDI);
 
 void setup() {
-    // put your setup code here, to run once:
+    // initialize data   
+    controller.begin();
 }
 
 void loop() {
-    // put your main code here, to run repeatedly:
+    // poll each hardware device and update the state
+    controller.update();
+    delay(100);
 }
+
