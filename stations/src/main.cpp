@@ -3,20 +3,19 @@
 #include "controller.h"
 #include <MIDI.h>
 
-
-State state = {};
-
-MidiInterface MIDI(Serial1);
-Controller controller(MIDI);
+Controller controller;
 
 void setup() {
-    // initialize data   
-    controller.begin();
+
 }
 
 void loop() {
     // poll each hardware device and update the state
     controller.update();
     delay(100);
+
+    // MIDI Controllers should discard incoming MIDI messages.
+    while (usbMIDI.read()) {
+    }
 }
 
