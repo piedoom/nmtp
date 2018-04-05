@@ -8,6 +8,11 @@
 #define PIN_ENVELOPE_4 3
 #define MIDI_CHANNEL 1
 
+#define CC_ATTACK 73
+#define CC_SUSTAIN 70
+#define CC_DECAY 71
+#define CC_RELEASE 69
+
 //MIDI_CREATE_DEFAULT_INSTANCE();
 
 Controller::Controller() {
@@ -46,19 +51,19 @@ void Controller::update() {
     
     // send data based on if value has changed
     if (new_state.envelope.attack_time != state.envelope.attack_time) {
-        usbMIDI.sendControlChange(1, new_state.envelope.attack_time, MIDI_CHANNEL);
+        usbMIDI.sendControlChange(CC_ATTACK, new_state.envelope.attack_time, MIDI_CHANNEL);
     }
 
     if (new_state.envelope.decay_volume != state.envelope.decay_volume) {
-        usbMIDI.sendControlChange(2, new_state.envelope.decay_volume, MIDI_CHANNEL);
+        usbMIDI.sendControlChange(CC_DECAY, new_state.envelope.decay_volume, MIDI_CHANNEL);
     }
 
     if (new_state.envelope.max_volume != state.envelope.max_volume) {
-        usbMIDI.sendControlChange(3, new_state.envelope.max_volume, MIDI_CHANNEL);
+        usbMIDI.sendControlChange(CC_SUSTAIN, new_state.envelope.max_volume, MIDI_CHANNEL);
     }
 
     if (new_state.envelope.release_time != state.envelope.release_time) {
-        usbMIDI.sendControlChange(4, new_state.envelope.release_time, MIDI_CHANNEL);
+        usbMIDI.sendControlChange(CC_RELEASE, new_state.envelope.release_time, MIDI_CHANNEL);
     }
 
     // set the state
