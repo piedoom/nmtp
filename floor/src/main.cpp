@@ -1,6 +1,5 @@
 #include "data/controller.h"
 #include <Arduino.h>
-
 #define TILE_COUNT 16
 
 // Position of buttons physically
@@ -29,9 +28,18 @@ int light_positions[TILE_COUNT] = // TODO: change so is correct
 
 Controller controller(button_positions, light_positions);
 
+// callback when midi data received 
+// https://github.com/2kohm/Teensy-USB-MIDI-CLOCK
+void real_time_system(uint8_t realtimebyte) {
+    // TODO: update controller tempo
+    // possibly send midi notes here?
+}
+
 void setup()
 {
+    usbMIDI.setHandleRealTimeSystem(real_time_system);
 }
+
 
 void loop()
 {

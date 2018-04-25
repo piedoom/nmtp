@@ -1,3 +1,4 @@
+#pragma once
 #include "data/state.h"
 #include "data/floor.h"
 #define GRID_SIZE 4

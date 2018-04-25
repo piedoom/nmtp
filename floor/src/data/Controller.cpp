@@ -1,12 +1,12 @@
 #include "controller.h"
 #include <Arduino.h>
+#include <TimerOne.h>
 
 #define TILE_COUNT 16
 
 Controller::Controller(int b_arr[], int l_arr[]) {
     button_positions.positions = b_arr;
     light_positions.positions = l_arr;
-
     state = get_state();
 };
 
@@ -28,17 +28,20 @@ void Controller::update() {
 
         if (new_button_state != current_button_state) {
             // we just toggled the button on
-            if (new_button_state)
+            if (new_button_state) {
                 new_state.buttons[i].state = true;
-                // TODO: change lights to on
+                // turn light on
+                digitalWrite(light_positions.positions[i], 1);
+            }
 
             // we just toggled the button off
-            if (!new_button_state)
+            if (!new_button_state) {
                 new_state.buttons[i].state = false;
-                // TODO: change lights to off
+                // turn light off
+                digitalWrite(light_positions.positions[i], 0);
+            }
         }
     }
-    // TODO
 
     // set new_state as current state when done
     state = new_state;

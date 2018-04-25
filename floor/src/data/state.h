@@ -1,4 +1,4 @@
-#include "floor.h"
+#pragma once
 #include "data/button.h"
 
 /// Immutable struct holds all data, useful for comparison
