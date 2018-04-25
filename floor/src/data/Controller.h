@@ -1,12 +1,16 @@
-#include "mux/mux.h"
 #include "data/state.h"
+#include "data/floor.h"
+#define GRID_SIZE 4
+
 
 class Controller {
     private:
-        Mux floor_mux;
         State state;
+        Floor light_positions;
+        Floor button_positions;
+
     public:
         State get_state();
-        Controller(int _s0, int _s1, int _s2, int _s3, int _signal);
+        Controller(int* b_arr, int* l_arr);
         void update();
 };

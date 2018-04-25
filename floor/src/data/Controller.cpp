@@ -1,27 +1,57 @@
 #include "controller.h"
 #include <Arduino.h>
 
-Controller::Controller(int _s0, int _s1, int _s2, int _s3, int _signal) {
-    floor_mux = Mux(_s0, _s1, _s2, _s3, _signal);
-    state = {};
+#define TILE_COUNT 16
+
+Controller::Controller(int b_arr[], int l_arr[]) {
+    button_positions.positions = b_arr;
+    light_positions.positions = l_arr;
+
+    state = get_state();
 };
 
 void Controller::update() {
     /// get new comparative state
     State new_state = get_state();
 
-    for (int i = 0; i < 16; i++ ) {
-        Serial.print(new_state.floor.squares[i]);
+    // compare current state to new_state
+    // loop through all buttons to get actual state
+    for (int i = 0; i < TILE_COUNT; i++) {
+        bool new_button_state = new_state.buttons[i].immediate_state;
+        bool current_button_state = state.buttons[i].immediate_state;
+
+        // check differences
+
+        // if nothing has changed, continue loop.
+        if (new_button_state == current_button_state)
+            continue;
+
+        if (new_button_state != current_button_state) {
+            // we just toggled the button on
+            if (new_button_state)
+                new_state.buttons[i].state = true;
+                // TODO: change lights to on
+
+            // we just toggled the button off
+            if (!new_button_state)
+                new_state.buttons[i].state = false;
+                // TODO: change lights to off
+        }
     }
-    Serial.println();
-    //Serial.println(new_state.floor.squares[2]);
+    // TODO
+
+    // set new_state as current state when done
+    state = new_state;
 };
 
 State Controller::get_state() {
-    // loop through all hardware to get state
     // get floorboard state
     State new_state;
-    floor_mux.read_all(new_state.floor.squares);
+
+    // loop through all hardware to get immediate state
+    for (int i = 0; i < TILE_COUNT; i++) {
+        new_state.buttons[i].immediate_state = digitalRead(button_positions.positions[i]);
+    }
 
     return new_state;
 };

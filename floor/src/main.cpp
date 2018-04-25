@@ -1,17 +1,36 @@
 #include "data/controller.h"
 #include <Arduino.h>
 
-#define MUX_SIGNAL PIN_E7
-#define MUX_S0 PIN_D0
-#define MUX_S1 PIN_D1
-#define MUX_S2 PIN_D2
-#define MUX_S3 PIN_D3
+#define TILE_COUNT 16
 
-Controller controller = Controller(MUX_S0, MUX_S1, MUX_S2, MUX_S3, MUX_SIGNAL);
+// Position of buttons physically
+/* usb  ||
+ * _____||_____
+ * |01|02|03|04|
+ * |05|06|07|08|
+ * |09|10|11|12|
+ * |13|14|15|16|
+ * -------------
+ */
+
+int button_positions[TILE_COUNT] = //TODO: change so is correct
+    { 1,  2,  3,  4  
+    , 5,  6,  7,  8  
+    , 9,  10, 11, 12 
+    , 13, 14, 15, 16 
+    };
+
+int light_positions[TILE_COUNT] = // TODO: change so is correct
+    { 1,  2,  3,  4  
+    , 5,  6,  7,  8  
+    , 9,  10, 11, 12 
+    , 13, 14, 15, 16 
+    };
+
+Controller controller(button_positions, light_positions);
 
 void setup()
 {
-    // new Mux();
 }
 
 void loop()
