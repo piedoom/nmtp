@@ -17,20 +17,7 @@ struct Floor {
     * -------------
     */ 
     bool get_square(int x, int y) {
-        // check that we are using a valid value
-        if (x > GRID_SIZE || y > GRID_SIZE)
-            return 0;
-            // "Grid coordinate is out of bounds"
-
-        // null check positions
-        if (!positions)
-            return 0;
-            // throw "Positions have not been set yet.";
-
-        // return the pin of choice.  This algo treats our 1,1 as 0,0, so lets first
-        // fix that
-        x -= 1; y -= 1;
-
+        // return the pin of choice.  from 0,0
         return positions[(GRID_SIZE * y) + x];
     }
 };

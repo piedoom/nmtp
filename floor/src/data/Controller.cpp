@@ -31,14 +31,14 @@ void Controller::update() {
             if (new_button_state) {
                 new_state.buttons[i].state = true;
                 // turn light on
-                digitalWrite(light_positions.positions[i], 1);
+                //digitalWrite(light_positions.positions[i], 1);
             }
 
             // we just toggled the button off
             if (!new_button_state) {
                 new_state.buttons[i].state = false;
                 // turn light off
-                digitalWrite(light_positions.positions[i], 0);
+                //digitalWrite(light_positions.positions[i], 0);
             }
         }
     }

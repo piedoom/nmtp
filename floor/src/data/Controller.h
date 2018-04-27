@@ -7,10 +7,11 @@
 class Controller {
     private:
         State state;
-        Floor light_positions;
-        Floor button_positions;
+        
 
     public:
+        Floor light_positions;
+        Floor button_positions;
         State get_state();
         Controller(int* b_arr, int* l_arr);
         void update();
